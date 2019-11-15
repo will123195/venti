@@ -53,7 +53,7 @@ describe('react-state-eventer', function () {
     wrapper.unmount()
   })
 
-  it('should update price', async function () {
+  it('should update price', function () {
     const state = new StateEventer()
     const withStateEventer = reactStateEventer(state)
     const ConnectedBook = withStateEventer(getProps)(Book)
@@ -64,7 +64,7 @@ describe('react-state-eventer', function () {
     wrapper.unmount()
   })
 
-  it('should remove listeners when unmounted', async function () {
+  it('should remove listeners when unmounted', function () {
     const state = new StateEventer()
     const withStateEventer = reactStateEventer(state)
     const ConnectedBook = withStateEventer(getProps)(Book)

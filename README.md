@@ -2,6 +2,8 @@
 
 Event emitter for React state
 
+[![Build Status](https://travis-ci.org/will123195/react-state-eventer.svg?branch=master)](https://travis-ci.org/will123195/react-state-eventer)
+
 ## Usage
 
 ```js
