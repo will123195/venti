@@ -1,5 +1,7 @@
 # react-state-eventer
 
+Event emitter for React state
+
 ## Usage
 
 ```js
@@ -20,12 +22,8 @@ const MyComponent = ({ count }) => (
   </button>
 )
 
-// get data for initial render and listen for changes
-// idea: this "state" could be a wrapped instance of state for a specific component
-// monkey patch the get method to log the paths to listen for changes
-// if props changes, we need to remove the listener(s) and start listening to the new path(s)
 const getProps = (state, props) => ({
-  count: state.get(`count`)
+  count: state.get('count')
 })
 const myComponent = withStateEventer(getProps)(MyComponent)
 ```
