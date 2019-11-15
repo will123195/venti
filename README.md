@@ -6,7 +6,17 @@ Event emitter for React state
 
 ## Overview
 
-- A very simple alternative to Redux
+A very simple alternative to Redux
+
+## Demo
+
+[Live Demo](https://will123195.github.io/react-state-eventer/demo/)
+
+```
+npm run demo
+```
+
+Browse the code for the [demo app here](https://github.com/will123195/react-state-eventer/tree/master/demo/src).
 
 ## Example
 
@@ -33,14 +43,6 @@ const getProps = (state, props) => ({
 }
 
 const myComponent = withStateEventer(getProps)(MyComponent)
-```
-
-## Demo
-
-Browse the code for the [demo app here](https://github.com/will123195/react-state-eventer/tree/master/demo/src).
-
-```
-npm run demo
 ```
 
 ## Tests
