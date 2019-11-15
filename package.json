@@ -4,21 +4,27 @@
   "description": "Event emitter for React state",
   "main": "index.js",
   "scripts": {
+    "demo": "browserify demo/src/index.js -t [ babelify --presets [ @babel/react ] ] -o demo/bundle.js && open demo/index.html",
     "test": "jest --bail --runInBand"
   },
   "author": "will123195",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.7.2",
     "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
     "@babel/runtime": "^7.4.4",
     "babel-jest": "^24.7.1",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
+    "idiot": "^2.0.1",
     "jest": "^24.7.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "socket.io-client": "^2.3.0",
     "state-eventer": "^1.2.1"
   }
 }

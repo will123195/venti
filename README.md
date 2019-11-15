@@ -4,7 +4,11 @@ Event emitter for React state
 
 [![Build Status](https://travis-ci.org/will123195/react-state-eventer.svg?branch=master)](https://travis-ci.org/will123195/react-state-eventer)
 
-## Usage
+## Overview
+
+- A very simple alternative to Redux
+
+## Example
 
 ```js
 import StateEventer from 'state-eventer'
@@ -26,6 +30,21 @@ const MyComponent = ({ count }) => (
 
 const getProps = (state, props) => ({
   count: state.get('count')
-})
+}
+
 const myComponent = withStateEventer(getProps)(MyComponent)
+```
+
+## Demo
+
+Browse the code for the [demo app here](https://github.com/will123195/react-state-eventer/tree/master/demo/src).
+
+```
+npm run demo
+```
+
+## Tests
+
+```
+npm test
 ```

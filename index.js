@@ -25,14 +25,15 @@ export default function reactStateEventer(state) {
         constructor(props) {
           super(props)
           this.listeners = []
+          this.beforeMount()
         }
 
-        componentDidMount() {
-          // immediately rerender with data from getProps
-          // and determine which paths to listen for changes
+        beforeMount() {
+          // set state with data from getProps before initial render
+          // also determine which paths to listen for changes
           const instrumentedState = new InstrumentedState(state)
           const props = getProps(instrumentedState, this.props)
-          this.setState(props)
+          this.state = props
           // listen for changes to the applicable paths
           Object.keys(instrumentedState.paths).forEach(path => {
             const listener = state.on(path, event => {
