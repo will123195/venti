@@ -1,6 +1,6 @@
 {
   "name": "react-state-eventer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Event emitter for React state",
   "main": "index.js",
   "scripts": {
