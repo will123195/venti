@@ -20,7 +20,7 @@ Browse the code for the [demo app here](https://github.com/will123195/venti/tree
 
 ## Example
 
-```js
+```jsx
 import React from 'react'
 import { withVenti, state } from 'venti'
 
