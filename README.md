@@ -1,7 +1,5 @@
 [![venti](venti.png)](https://github.com/will123195/venti)
 
-# venti
-
 Global state for React
 
 [![Build Status](https://travis-ci.org/will123195/venti.svg?branch=master)](https://travis-ci.org/will123195/venti)
