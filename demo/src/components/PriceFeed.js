@@ -9,7 +9,7 @@ const PriceFeed = ({ symbols }) => (
 )
 
 const getProps = (state, props) => ({
-  symbols: Object.keys(state.get('symbols') || {})
+  symbols: Object.keys(state.get('symbols', {}))
 })
 
 export default withVenti(getProps)(PriceFeed)

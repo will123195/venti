@@ -63,7 +63,7 @@ var PriceFeed = function PriceFeed(_ref) {
 
 var getProps = function getProps(state, props) {
   return {
-    symbols: Object.keys(state.get('symbols') || {})
+    symbols: Object.keys(state.get('symbols', {}))
   };
 };
 
@@ -44866,7 +44866,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = venti;
-Object.defineProperty(exports, "StateEventer", {
+Object.defineProperty(exports, "State", {
   enumerable: true,
   get: function get() {
     return _stateEventer["default"];
