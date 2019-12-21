@@ -13,7 +13,7 @@ var _react = _interopRequireDefault(require("react"));
 var _ = require("../../..");
 
 function increment() {
-  var count = _.state.get('count');
+  var count = _.state.get('count', 0);
 
   _.state.set('count', count + 1);
 }
