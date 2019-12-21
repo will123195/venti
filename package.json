@@ -1,14 +1,17 @@
 {
-  "name": "react-state-eventer",
-  "version": "1.0.2",
-  "description": "Event emitter for React state",
-  "main": "index.js",
+  "name": "venti",
+  "version": "1.0.0",
+  "description": "Global state for React",
+  "main": "venti.js",
   "scripts": {
     "demo": "browserify demo/src/index.js -t [ babelify --presets [ @babel/react ] ] -o demo/bundle.js && open demo/index.html",
     "test": "jest --bail --runInBand"
   },
   "author": "will123195",
   "license": "MIT",
+  "dependencies": {
+    "state-eventer": "^1.2.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/plugin-transform-runtime": "^7.4.4",
@@ -24,7 +27,6 @@
     "jest": "^24.7.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "socket.io-client": "^2.3.0",
-    "state-eventer": "^1.2.1"
+    "socket.io-client": "^2.3.0"
   }
 }

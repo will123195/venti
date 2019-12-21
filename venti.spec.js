@@ -1,13 +1,11 @@
 import React from 'react'
-import StateEventer from 'state-eventer'
-import reactStateEventer from '.'
+import venti, { State } from '.'
 import { mount, configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import { act } from 'react-dom/test-utils'
 
 configure({ adapter: new Adapter() })
 
-describe('react-state-eventer', function () {
+describe('venti', function () {
   const id = 'a'
   const title = 'Ready Player One'
   const price = 19.99
@@ -24,18 +22,18 @@ describe('react-state-eventer', function () {
   }
 
   it('should render title before document exists', function () {
-    const state = new StateEventer()
-    const withStateEventer = reactStateEventer(state)
-    const ConnectedBook = withStateEventer(getProps)(Book)
+    const state = new State()
+    const withVenti = venti(state)
+    const ConnectedBook = withVenti(getProps)(Book)
     const wrapper = mount(<ConnectedBook id={id} />)
     expect(wrapper.html()).toBe('<i class="title"></i><i class="price"></i>')
     wrapper.unmount()
   })
 
   it('should render initial data', function () {
-    const state = new StateEventer()
-    const withStateEventer = reactStateEventer(state)
-    const ConnectedBook = withStateEventer(getProps)(Book)
+    const state = new State()
+    const withVenti = venti(state)
+    const ConnectedBook = withVenti(getProps)(Book)
     state.set('books.a', { id, title, price })
     const wrapper = mount(<ConnectedBook id={id} />)
     expect(wrapper.find('.price').text()).toBe('19.99')
@@ -43,9 +41,9 @@ describe('react-state-eventer', function () {
   })
 
   it('should update book', function () {
-    const state = new StateEventer()
-    const withStateEventer = reactStateEventer(state)
-    const ConnectedBook = withStateEventer(getProps)(Book)
+    const state = new State()
+    const withVenti = venti(state)
+    const ConnectedBook = withVenti(getProps)(Book)
     state.set('books.a', { id, title, price })
     const wrapper = mount(<ConnectedBook id={id} />)
     state.set('books.a', { id, title, price: 29.99 })
@@ -54,9 +52,9 @@ describe('react-state-eventer', function () {
   })
 
   it('should update price', function () {
-    const state = new StateEventer()
-    const withStateEventer = reactStateEventer(state)
-    const ConnectedBook = withStateEventer(getProps)(Book)
+    const state = new State()
+    const withVenti = venti(state)
+    const ConnectedBook = withVenti(getProps)(Book)
     state.set('books.a', { id, title, price })
     const wrapper = mount(<ConnectedBook id={id} />)
     state.set('books.a.price', 39.99)
@@ -65,9 +63,9 @@ describe('react-state-eventer', function () {
   })
 
   it('should remove listeners when unmounted', function () {
-    const state = new StateEventer()
-    const withStateEventer = reactStateEventer(state)
-    const ConnectedBook = withStateEventer(getProps)(Book)
+    const state = new State()
+    const withVenti = venti(state)
+    const ConnectedBook = withVenti(getProps)(Book)
     state.set('books.a', { id, title, price })
     const wrapper = mount(<ConnectedBook id={id} />)
     state.set('books.a.price', 1.99)

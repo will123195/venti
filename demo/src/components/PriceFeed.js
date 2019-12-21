@@ -1,5 +1,5 @@
 import React from 'react'
-import { withStateEventer } from '../store'
+import { withVenti } from '../../..'
 import Row from './Row'
 
 const PriceFeed = ({ symbols }) => (
@@ -9,7 +9,7 @@ const PriceFeed = ({ symbols }) => (
 )
 
 const getProps = (state, props) => ({
-  symbols: Object.keys(state.get('symbols'))
+  symbols: Object.keys(state.get('symbols') || {})
 })
 
-export default withStateEventer(getProps)(PriceFeed)
+export default withVenti(getProps)(PriceFeed)

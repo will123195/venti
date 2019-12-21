@@ -1,4 +1,5 @@
 import React from 'react'
+import State from 'state-eventer'
 
 function pathToString(path) {
   if (typeof path === 'string') return path
@@ -18,7 +19,7 @@ class InstrumentedState {
   }
 }
 
-export default function reactStateEventer(state) {
+export default function venti(state) {
   return getProps => {
     return Component => {
       return class extends React.Component {
@@ -55,3 +56,7 @@ export default function reactStateEventer(state) {
     }
   }
 }
+
+export { State }
+export const state = new State()
+export const withVenti = venti(state)

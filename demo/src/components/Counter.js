@@ -1,5 +1,5 @@
 import React from 'react'
-import { state, withStateEventer } from '../store'
+import { state, withVenti } from '../../..'
 
 function increment() {
   const count = state.get('count')
@@ -14,4 +14,4 @@ const getProps = (state, props) => ({
   count: state.get('count')
 })
 
-export default withStateEventer(getProps)(Counter)
+export default withVenti(getProps)(Counter)

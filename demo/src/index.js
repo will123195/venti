@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Counter from './components/Counter'
 import PriceFeed from './components/PriceFeed'
+import './dataFeed'
 
 ReactDOM.render((
   <>
