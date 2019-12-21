@@ -1,12 +1,6 @@
 import { state } from '../../venti'
 import io from 'socket.io-client'
 
-// initialize state
-state.set({
-  count: 0,
-  symbols: {}
-})
-
 //
 // price feed updates the state in real time
 //

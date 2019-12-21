@@ -2,7 +2,7 @@ import React from 'react'
 import { state, withVenti } from '../../..'
 
 function increment() {
-  const count = state.get('count')
+  const count = state.get('count', 0)
   state.set('count', count + 1)
 }
 
@@ -11,7 +11,7 @@ const Counter = ({ count }) => (
 )
 
 const getProps = (state, props) => ({
-  count: state.get('count')
+  count: state.get('count', 0)
 })
 
 export default withVenti(getProps)(Counter)

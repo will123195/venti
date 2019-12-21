@@ -25,7 +25,7 @@ import React from 'react'
 import { withVenti, state } from 'venti'
 
 function increment() {
-  const count = state.get('count') || 0
+  const count = state.get('count', 0) // default 0
   state.set('count', count + 1)
 }
 

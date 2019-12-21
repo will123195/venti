@@ -27,7 +27,7 @@ var Counter = function Counter(_ref) {
 
 var getProps = function getProps(state, props) {
   return {
-    count: state.get('count')
+    count: state.get('count', 0)
   };
 };
 
@@ -52,18 +52,20 @@ var _ = require("../../..");
 var _Row = _interopRequireDefault(require("./Row"));
 
 var PriceFeed = function PriceFeed(_ref) {
-  var symbols = _ref.symbols;
-  return _react["default"].createElement("div", null, symbols.map(function (symbol) {
+  var symbols = _ref.symbols,
+      count = _ref.count;
+  return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("div", null, symbols.map(function (symbol) {
     return _react["default"].createElement(_Row["default"], {
       key: symbol,
       symbol: symbol
     });
-  }));
+  })), _react["default"].createElement("hr", null), _react["default"].createElement("div", null, "Counter: ", count));
 };
 
 var getProps = function getProps(state, props) {
   return {
-    symbols: Object.keys(state.get('symbols', {}))
+    symbols: Object.keys(state.get('symbols', {})),
+    count: state.get('count', 'Please click the increment button.')
   };
 };
 
@@ -117,15 +119,9 @@ var _venti = require("../../venti");
 
 var _socket = _interopRequireDefault(require("socket.io-client"));
 
-// initialize state
-_venti.state.set({
-  count: 0,
-  symbols: {}
-}); //
+//
 // price feed updates the state in real time
 //
-
-
 var socket = _socket["default"].connect('https://streamer.cryptocompare.com/');
 
 var symbols = ['BTC', 'ETH', 'XRP', 'BCH', 'LTC', 'BNB', 'EOS', 'XLM', 'TRX', 'ETC', 'ADA', 'XMR'];
@@ -44611,9 +44607,10 @@ class StateEventer {
     this.enableParentEvents = true
   }
 
-  get(path) {
+  get(path, defaultValue) {
     if (typeof path === 'undefined') return this.state
-    return _.get(this.state, path)
+    console.log({ defaultValue })
+    return _.get(this.state, path, defaultValue)
   }
 
   notifyAllPathListeners(value) {
@@ -44911,10 +44908,10 @@ function () {
 
   (0, _createClass2["default"])(InstrumentedState, [{
     key: "get",
-    value: function get(path) {
+    value: function get(path, defaultValue) {
       var pathString = pathToString(path);
       this.paths[pathString] = true;
-      return this.state.get(path);
+      return this.state.get(path, defaultValue);
     }
   }]);
   return InstrumentedState;

@@ -12,10 +12,10 @@ class InstrumentedState {
     this.state = state
     this.paths = {}
   }
-  get(path) {
+  get(path, defaultValue) {
     const pathString = pathToString(path)
     this.paths[pathString] = true
-    return this.state.get(path)
+    return this.state.get(path, defaultValue)
   }
 }
 
