@@ -21,6 +21,7 @@ Browse the code for the [demo app here](https://github.com/will123195/venti/tree
 ## Example
 
 ```js
+import React from 'react'
 import { withVenti, state } from 'venti'
 
 function increment() {
@@ -46,3 +47,7 @@ const myComponent = withVenti(getProps)(MyComponent)
 ```
 npm test
 ```
+
+## License
+
+MIT
