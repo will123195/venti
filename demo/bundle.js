@@ -44609,7 +44609,6 @@ class StateEventer {
 
   get(path, defaultValue) {
     if (typeof path === 'undefined') return this.state
-    console.log({ defaultValue })
     return _.get(this.state, path, defaultValue)
   }
 
