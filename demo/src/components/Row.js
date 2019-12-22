@@ -1,10 +1,10 @@
 import React from 'react'
-import { withVenti } from '../../..'
+import { useVenti } from '../../..'
 
-const Row = ({ symbol, price }) => <div>{symbol}: ${price}</div>
+const Row = ({ symbol }) => {
+  const state = useVenti()
+  const price = state.get(`symbols.${symbol}.price`)
+  return <div>{symbol}: ${price}</div>
+}
 
-const getProps = (state, props) => ({
-  price: state.get(`symbols.${props.symbol}.price`)
-})
-
-export default withVenti(getProps)(Row)
+export default Row
