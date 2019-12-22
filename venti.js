@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import State from 'state-eventer'
 
 function pathToString(path) {
@@ -60,3 +60,24 @@ export default function venti(state) {
 export { State }
 export const state = new State()
 export const withVenti = venti(state)
+
+export function useVenti() {
+  const instrumentedState = new InstrumentedState(state)
+  const [nothing, rerender] = useState(null)
+
+  useEffect(() => {
+    let listeners = []
+    Object.keys(instrumentedState.paths).forEach(path => {
+      const listener = state.on(path, event => {
+        rerender()
+      })
+      listeners.push(listener)
+    })
+
+    return () => {
+      listeners.forEach(listener => listener.off())
+      listeners = []
+    }
+  })
+  return instrumentedState
+}
