@@ -31,25 +31,6 @@ export default function RandomButtonComponent() {
 }
 ```
 
-Alternate Usage
-
-```jsx
-import React from 'react'
-import { withVenti, state } from 'venti'
-
-const randomize = () => state.set('random', Math.random())
-
-const RandomButtonComponent = ({ random }) => (
-  <button onClick={randomize}>{random}</button>
-)
-
-const getProps = (state, props) => ({
-  random: state.get('random')
-})
-
-export default withVenti(getProps)(RandomButtonComponent)
-```
-
 ## Tests
 
 ```
