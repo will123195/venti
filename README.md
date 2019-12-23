@@ -16,7 +16,7 @@ A very simple alternative to Redux
 npm run demo
 ```
 
-### Usage
+## Usage
 
 ```jsx
 import React from 'react'
