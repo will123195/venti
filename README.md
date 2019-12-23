@@ -40,7 +40,7 @@ state.set('books.1', {
 
 ### `useVenti( [state] )`
   - `state` {State} (optional) defaults to singleton state if not provided
-  - Returns `state` 
+  - Returns `state` that has been instrumented to update the component when applicable
   - See [StateEventer](https://github.com/will123195/state-eventer) for more info
 
 ### `state.get( path, [defaultValue] )`
