@@ -8,14 +8,6 @@
 
 A very simple alternative to Redux
 
-## Demo
-
-[Live Demo](https://will123195.github.io/venti/demo/) and view [source code for demo app](https://github.com/will123195/venti/tree/master/demo/src).
-
-```
-npm run demo
-```
-
 ## Usage
 
 ```jsx
@@ -48,6 +40,14 @@ export default function RandomButtonComponent() {
 
 ### `state.unset( path )`
   - `path` {Array|string} The path of the property to unset
+
+## Demo
+
+[Live Demo](https://will123195.github.io/venti/demo/) and view [source code for demo app](https://github.com/will123195/venti/tree/master/demo/src).
+
+```
+npm run demo
+```
 
 ## Tests
 
