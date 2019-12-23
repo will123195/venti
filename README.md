@@ -8,18 +8,18 @@
 
 A very simple alternative to Redux
 
-## Usage
+## Quick Start
 
 ```jsx
 import React from 'react'
-import { useVenti, state } from 'venti'
+import { state, useVenti } from 'venti'
 
-const randomize = () => state.set('random', Math.random())
+const update = () => state.set('myValue', Math.random())
 
-export default function RandomButtonComponent() {
+export default function MyComponent() {
   const state = useVenti()
-  const random = state.get('random', 'Click to randomize')
-  return <button onClick={randomize}>{random}</button>
+  const myValue = state.get('myValue')
+  return <button onClick={update}>My value is: {myValue}</button>
 }
 ```
 
