@@ -1,4 +1,4 @@
-[![venti](venti.png)](https://github.com/will123195/venti)
+[![Venti](https://raw.githubusercontent.com/will123195/venti/HEAD/venti.png)](https://github.com/will123195/venti)
 
 **Global State for React**
 
