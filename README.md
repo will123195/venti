@@ -16,37 +16,31 @@ A very simple alternative to Redux
 npm run demo
 ```
 
-## Example Using React Hooks
+### Example Using React Hooks
 
 ```jsx
 import React from 'react'
 import { useVenti, state } from 'venti'
 
-function increment() {
-  const count = state.get('count', 0) // default 0
-  state.set('count', count + 1)
+function randomize() {
+  state.set('random', Math.random())
 }
 
 function MyComponent() {
   const state = useVenti()
-  const count = state.get('count')
-  return (
-    <button onClick={increment}>
-      Count: {count}
-    </button>
-  )
+  const random = state.get('random')
+  return <button onClick={randomize}>{random}</button>
 }
 ```
 
-## Example With Higher-Order Component
+### Example With Higher-Order Component
 
 ```jsx
 import React from 'react'
 import { withVenti, state } from 'venti'
 
-function increment() {
-  const count = state.get('count', 0) // default 0
-  state.set('count', count + 1)
+function randomize() {
+  state.set('random', Math.random())
 }
 
 const MyComponent = ({ count }) => (
