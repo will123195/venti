@@ -31,7 +31,7 @@ export default function RandomButtonComponent() {
 }
 ```
 
-### Alternate Usage (Higher-Order Component)
+Alternate Usage
 
 ```jsx
 import React from 'react'
