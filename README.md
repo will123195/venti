@@ -4,6 +4,12 @@
 
 [![Build Status](https://travis-ci.org/will123195/venti.svg?branch=master)](https://travis-ci.org/will123195/venti)
 
+## Install
+
+```
+npm i venti
+```
+
 ## Quick Start
 
 ```jsx
