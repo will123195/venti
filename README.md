@@ -4,10 +4,6 @@
 
 [![Build Status](https://travis-ci.org/will123195/venti.svg?branch=master)](https://travis-ci.org/will123195/venti)
 
-## Overview
-
-A very simple alternative to Redux
-
 ## Quick Start
 
 ```jsx
