@@ -18,7 +18,7 @@ const randomize = () => state.set('random', Math.random())
 
 export default function RandomButtonComponent() {
   const state = useVenti()
-  const random = state.get('random')
+  const random = state.get('random', 'Click to randomize')
   return <button onClick={randomize}>{random}</button>
 }
 ```
