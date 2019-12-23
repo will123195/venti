@@ -67,8 +67,9 @@ export { State }
 export const state = new State()
 export const withVenti = venti(state)
 
-export function useVenti() {
-  const instrumentedState = new InstrumentedState(state)
+export function useVenti(customState) {
+  const globalState = customState || state
+  const instrumentedState = new InstrumentedState(globalState)
   const [nothing, rerender] = useState(null)
 
   useEffect(() => {

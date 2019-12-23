@@ -45043,8 +45043,9 @@ exports.state = state;
 var withVenti = venti(state);
 exports.withVenti = withVenti;
 
-function useVenti() {
-  var instrumentedState = new InstrumentedState(state);
+function useVenti(customState) {
+  var globalState = customState || state;
+  var instrumentedState = new InstrumentedState(globalState);
 
   var _useState = (0, _react.useState)(null),
       _useState2 = (0, _slicedToArray2["default"])(_useState, 2),

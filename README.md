@@ -38,7 +38,8 @@ state.set('books.1', {
 
 ## API
 
-### `useVenti()`
+### `useVenti( [state] )`
+  - `state` {State} (optional) defaults to singleton state if not provided
   - Returns `state` 
   - See [StateEventer](https://github.com/will123195/state-eventer) for more info
 
@@ -53,6 +54,24 @@ state.set('books.1', {
 
 ### `state.unset( path )`
   - `path` {Array|string} The path of the property to unset
+
+## Advanced Usage
+
+If you don't want to use Venti's singleton state, you can do this:
+
+```jsx
+import React from 'react'
+import { State, useVenti } from 'venti'
+
+const globalState = new State()
+const useGlobalState = () => useVenti(globalState)
+
+export default function Book({ id }) {
+  const state = useGlobalState()
+  const { title, year } = state.get(`books.${id}`)
+  return <div>{title} ({year})</div>
+}
+```
 
 ## Demo
 
