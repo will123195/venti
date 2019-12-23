@@ -14,15 +14,22 @@ npm i venti
 
 ```jsx
 import React from 'react'
-import { state, useVenti } from 'venti'
+import { useVenti } from 'venti'
 
-const update = () => state.set('myValue', Math.random())
-
-export default function MyComponent() {
+export default function Book({ id }) {
   const state = useVenti()
-  const myValue = state.get('myValue')
-  return <button onClick={update}>My value is: {myValue}</button>
+  const { title, year } = state.get(`books.${id}`)
+  return <div>{title} ({year})</div>
 }
+```
+
+```js
+import { state } from 'venti'
+
+state.set('books.1', {
+  title: 'Cannery Row',
+  year: 1945
+})
 ```
 
 ## API
