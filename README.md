@@ -1,6 +1,6 @@
 [![venti](venti.png)](https://github.com/will123195/venti)
 
-Global state for React
+## Global State for React
 
 [![Build Status](https://travis-ci.org/will123195/venti.svg?branch=master)](https://travis-ci.org/will123195/venti)
 
@@ -16,44 +16,38 @@ A very simple alternative to Redux
 npm run demo
 ```
 
-### Example Using React Hooks
+### Usage
 
 ```jsx
 import React from 'react'
 import { useVenti, state } from 'venti'
 
-function randomize() {
-  state.set('random', Math.random())
-}
+const randomize = () => state.set('random', Math.random())
 
-function MyComponent() {
+export default function RandomButtonComponent() {
   const state = useVenti()
   const random = state.get('random')
   return <button onClick={randomize}>{random}</button>
 }
 ```
 
-### Example With Higher-Order Component
+### Alternate Usage (Higher-Order Component)
 
 ```jsx
 import React from 'react'
 import { withVenti, state } from 'venti'
 
-function randomize() {
-  state.set('random', Math.random())
-}
+const randomize = () => state.set('random', Math.random())
 
-const MyComponent = ({ count }) => (
-  <button onClick={increment}>
-    Count: {count}
-  </button>
+const RandomButtonComponent = ({ random }) => (
+  <button onClick={randomize}>{random}</button>
 )
 
 const getProps = (state, props) => ({
-  count: state.get('count')
+  random: state.get('random')
 })
 
-const myComponent = withVenti(getProps)(MyComponent)
+export default withVenti(getProps)(RandomButtonComponent)
 ```
 
 ## Tests
