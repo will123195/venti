@@ -31,6 +31,24 @@ export default function RandomButtonComponent() {
 }
 ```
 
+## API
+
+### `useVenti()`
+  - Returns `state` 
+  - See [StateEventer](https://github.com/will123195/state-eventer) for more info
+
+### `state.get( path, [defaultValue] )`
+  - `path` {Array|string} The path to get
+  - `defaultValue` {*} (optional) The value returned for undefined resolved values
+  - Returns the resolved value
+
+### `state.set( path, value )`
+  - `path` {Array|string} The path of the property to set
+  - `value` {*} The value to set
+
+### `state.unset( path )`
+  - `path` {Array|string} The path of the property to unset
+
 ## Tests
 
 ```
