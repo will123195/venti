@@ -17,6 +17,12 @@ class InstrumentedState {
     this.paths[pathString] = true
     return this.state.get(path, defaultValue)
   }
+  set(path, value) {
+    return this.state.set(path, value)
+  }
+  unset(path) {
+    return this.state.unset(path)
+  }
 }
 
 export default function venti(state) {

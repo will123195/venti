@@ -44964,6 +44964,16 @@ function () {
       this.paths[pathString] = true;
       return this.state.get(path, defaultValue);
     }
+  }, {
+    key: "set",
+    value: function set(path, value) {
+      return this.state.set(path, value);
+    }
+  }, {
+    key: "unset",
+    value: function unset(path) {
+      return this.state.unset(path);
+    }
   }]);
   return InstrumentedState;
 }();
