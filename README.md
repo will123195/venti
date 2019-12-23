@@ -20,8 +20,9 @@ import { useVenti } from 'venti'
 
 export default function Book({ id }) {
   const state = useVenti()
-  const { title, year } = state.get(`books.${id}`)
-  return <div>{title} ({year})</div>
+  const { author, title } = state.get(`books.${id}`)
+  const year = state.get(`books.${id}.year`)
+  return <div>"{title}" by {author} ({year})</div>
 }
 ```
 
@@ -31,6 +32,7 @@ export default function Book({ id }) {
 import { state } from 'venti'
 
 state.set('books.1', {
+  author: 'John Steinbeck',
   title: 'Cannery Row',
   year: 1945
 })
