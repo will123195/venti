@@ -12,6 +12,8 @@ npm i venti
 
 ## Quick Start
 
+#### Get global state
+
 ```jsx
 import React from 'react'
 import { useVenti } from 'venti'
@@ -22,6 +24,8 @@ export default function Book({ id }) {
   return <div>{title} ({year})</div>
 }
 ```
+
+#### Set global state
 
 ```js
 import { state } from 'venti'
