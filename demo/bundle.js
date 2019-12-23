@@ -81,21 +81,18 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports["default"] = Row;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _ = require("../../..");
 
-var Row = function Row(_ref) {
+function Row(_ref) {
   var symbol = _ref.symbol;
   var state = (0, _.useVenti)();
   var price = state.get("symbols.".concat(symbol, ".price"));
   return _react["default"].createElement("div", null, symbol, ": $", price);
-};
-
-var _default = Row;
-exports["default"] = _default;
+}
 
 },{"../../..":91,"@babel/runtime/helpers/interopRequireDefault":13,"react":67}],4:[function(require,module,exports){
 "use strict";
