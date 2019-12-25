@@ -44817,8 +44817,7 @@ function useVenti(customState) {
     var listeners = [];
     Object.keys(instrumentedState.paths).forEach(function (path) {
       var listener = state.on(path, function (event) {
-        // TODO: there should be a faster way than Math.random()
-        forceUpdate(Math.random());
+        forceUpdate({});
       });
       listeners.push(listener);
     });

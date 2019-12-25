@@ -38,8 +38,7 @@ export function useVenti(customState) {
     let listeners = []
     Object.keys(instrumentedState.paths).forEach(path => {
       const listener = state.on(path, event => {
-        // TODO: there should be a faster way than Math.random()
-        forceUpdate(Math.random())
+        forceUpdate({})
       })
       listeners.push(listener)
     })
