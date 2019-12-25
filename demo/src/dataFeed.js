@@ -1,4 +1,4 @@
-import { state } from '../../venti'
+import { state } from '../..'
 import io from 'socket.io-client'
 
 //

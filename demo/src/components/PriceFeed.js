@@ -1,9 +1,12 @@
 import React from 'react'
-import { withVenti } from '../../..'
+import { useVenti } from '../../..'
 import Row from './Row'
 
-const PriceFeed = ({ symbols, count }) => (
-  <>
+export default function PriceFeed() {
+  const state = useVenti()
+  const symbols = Object.keys(state.get('symbols', {}))
+  const count = state.get('count', 'Please click the increment button.')
+  return <>
     <div>
       {symbols.map(symbol => <Row key={symbol} symbol={symbol} />)}
     </div>
@@ -12,11 +15,4 @@ const PriceFeed = ({ symbols, count }) => (
       Counter: {count}
     </div>
   </>
-)
-
-const getProps = (state, props) => ({
-  symbols: Object.keys(state.get('symbols', {})),
-  count: state.get('count', 'Please click the increment button.')
-})
-
-export default withVenti(getProps)(PriceFeed)
+}

@@ -1,17 +1,9 @@
 import React from 'react'
-import { state, withVenti } from '../../..'
+import { useVenti } from '../../..'
+import increment from '../services/increment'
 
-function increment() {
+export default function Counter() {
+  const state = useVenti()
   const count = state.get('count', 0)
-  state.set('count', count + 1)
+  return <button onClick={increment}>Increment: {count}</button>
 }
-
-const Counter = ({ count }) => (
-  <button onClick={increment}>Increment: {count}</button>
-)
-
-const getProps = (state, props) => ({
-  count: state.get('count', 0)
-})
-
-export default withVenti(getProps)(Counter)
