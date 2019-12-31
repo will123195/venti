@@ -75,13 +75,15 @@ export default function Book({ id }) {
 }
 ```
 
-## Demo
+## Performance Benchmarks
 
-[Live Demo](https://will123195.github.io/venti/demo/) and view [source code for demo app](https://github.com/will123195/venti/tree/master/demo/src).
+### Color Matrix Benchmark
+- Venti: https://will123195.github.io/venti-performance/build/
+- Redux: https://will123195.github.io/redux-performance/build/
 
-```
-npm run demo
-```
+## Example
+
+https://codesandbox.io/s/github/GantMan/ReactStateMuseum/tree/master/React/venti
 
 ## Tests
 
