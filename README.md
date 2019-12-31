@@ -81,9 +81,9 @@ export default function Book({ id }) {
 - Venti: https://will123195.github.io/venti-performance/build/
 - Redux: https://will123195.github.io/redux-performance/build/
 
-## Example
+## Examples
 
-https://codesandbox.io/s/github/GantMan/ReactStateMuseum/tree/master/React/venti
+- [React State Museum - Packing List App](https://codesandbox.io/s/github/GantMan/ReactStateMuseum/tree/master/React/venti)
 
 ## Tests
 
