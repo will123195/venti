@@ -63,4 +63,12 @@ describe('useVenti', function () {
     expect(wrapper2.find('.price').text()).toBe('3.99')
     wrapper2.unmount()
   })
+
+  it('should increment price', function () {
+    act(() => state.set('books.a', { id, title, price }))
+    const wrapper = mount(<Book id={id} />)
+    act(() => state.update('books.a.price', price => price + 10))
+    expect(wrapper.find('.price').text()).toBe('29.99')
+    wrapper.unmount()
+  })
 })

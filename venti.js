@@ -22,6 +22,9 @@ class InstrumentedState {
   set(path, value) {
     return this.state.set(path, value)
   }
+  update(path, fn, defaultValue) {
+    return this.state.update(path, fn, defaultValue)
+  }
   unset(path) {
     return this.state.unset(path)
   }
