@@ -61,10 +61,10 @@ state.set('books.1', {
   - `path` {Array|string} The path of the property to set
   - `transformFn` {Function} transforms the current value to a new value
   - `defaultValue` {*} (optional) the default value to pass into the transform function if the existing value at the given path is undefined
-  ```js
-  set('counter', n => n + 1, 0)
-  ```
-  
+    ```js
+    state.update('counter', n => n + 1, 0)
+    ```
+
 ## Advanced Usage
 
 If you don't want to use Venti's singleton state, you can do this:
