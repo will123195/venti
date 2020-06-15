@@ -10,7 +10,7 @@
   "author": "will123195",
   "license": "MIT",
   "dependencies": {
-    "state-eventer": "^1.5.3"
+    "state-eventer": "^1.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -18,7 +18,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/runtime": "^7.10.2",
-    "babel-jest": "^24.7.1",
+    "babel-jest": "^26.0.1",
     "babelify": "^10.0.0",
     "browserify": "^16.5.1",
     "enzyme": "^3.11.0",
