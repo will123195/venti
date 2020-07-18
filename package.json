@@ -1,6 +1,6 @@
 {
   "name": "venti",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "Global State for React",
   "main": "venti.js",
   "scripts": {
