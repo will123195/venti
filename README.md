@@ -19,9 +19,9 @@ import React from 'react'
 import { useVenti } from 'venti'
 
 export default function Book({ id }) {
-  const state = useVenti() // this is needed so your component updates when state changes
-  const { author, title } = state.get(`books.${id}`, {}) // get an object
-  const year = state.get(`books.${id}.year`)             // or a property
+  const state = useVenti()
+  const { author, title } = state.get(`books.${id}`, {})
+  const year = state.get(`books.${id}.year`)
   return <div>"{title}" by {author} ({year})</div>
 }
 ```
