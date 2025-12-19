@@ -1,57 +1,66 @@
 import React from 'react'
 import { useVenti, state } from '..'
-import { mount, configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import { act } from 'react-dom/test-utils'
-
-configure({ adapter: new Adapter() })
+import { render, screen, cleanup } from '@testing-library/react'
+import { act } from 'react'
 
 describe('int', function () {
+  afterEach(() => {
+    cleanup()
+  })
+
   function A() {
-    const state = useVenti()
-    const a = state.get(`a`)
+    const s = useVenti()
+    const a = s.get(`a`)
     return <B a={a} />
   }
   function B({ a }) {
     return <>
-      <i className='c'>{a.b.c}</i>
+      <i data-testid='c'>{a.b.c}</i>
     </>
   }
   it('should update', function () {
     act(() => state.set('a.b', { c: 1 }))
-    const wrapper = mount(<A />)
-    expect(wrapper.find('.c').text()).toBe('1')
+    const { unmount } = render(<A />)
+    expect(screen.getByTestId('c').textContent).toBe('1')
     act(() => state.set('a.b', { c: 2 }))
-    expect(wrapper.find('.c').text()).toBe('2')
-    wrapper.unmount()
+    expect(screen.getByTestId('c').textContent).toBe('2')
+    unmount()
   })
 })
 
 describe('obj', function () {
+  afterEach(() => {
+    cleanup()
+  })
+
   function A() {
-    const state = useVenti()
-    const a = state.get(`a`)
+    const s = useVenti()
+    const a = s.get(`a`)
     return <B a={a} />
   }
   function B({ a }) {
     return <>
-      <i className='c'>{JSON.stringify(a.b.c)}</i>
+      <i data-testid='c'>{JSON.stringify(a.b.c)}</i>
     </>
   }
   it('should update', function () {
     act(() => state.set('a.b.c', { d: 1 }))
-    const wrapper = mount(<A />)
-    expect(wrapper.find('.c').text()).toBe('{"d":1}')
+    const { unmount } = render(<A />)
+    expect(screen.getByTestId('c').textContent).toBe('{"d":1}')
     act(() => state.set('a.b.c', { d: 2 }))
-    expect(wrapper.find('.c').text()).toBe('{"d":2}')
-    wrapper.unmount()
+    expect(screen.getByTestId('c').textContent).toBe('{"d":2}')
+    unmount()
   })
 })
 
 describe('arr', function () {
+  afterEach(() => {
+    cleanup()
+  })
+
   function A() {
-    const state = useVenti()
-    const a = state.get(`a`)
+    const s = useVenti()
+    const a = s.get(`a`)
     return <B a={a} />
   }
   function B({ a }) {
@@ -59,15 +68,15 @@ describe('arr', function () {
   }
   function C({ a }) {
     return <>
-      <i className='c'>{JSON.stringify(a.b.c)}</i>
+      <i data-testid='c'>{JSON.stringify(a.b.c)}</i>
     </>
   }
   it('should update', function () {
     act(() => state.set('a.b.c', ['d']))
-    const wrapper = mount(<A />)
-    expect(wrapper.find('.c').text()).toBe('["d"]')
+    const { unmount } = render(<A />)
+    expect(screen.getByTestId('c').textContent).toBe('["d"]')
     act(() => state.update('a.b.c', arr => [...arr, 'e']))
-    expect(wrapper.find('.c').text()).toBe('["d","e"]')
-    wrapper.unmount()
+    expect(screen.getByTestId('c').textContent).toBe('["d","e"]')
+    unmount()
   })
 })
